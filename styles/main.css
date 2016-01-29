@@ -6,6 +6,7 @@ body {
   perspective: 2000px;
 }
 
+/* La grille complète */
 #grid {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -64,26 +65,12 @@ body {
   background-color: #fff;
 }
 
+/* Cellule en l'état UP maximum */
 .cell.up {
-  background-color: #c0c0c0;
   transform: translateZ(30px);
 }
-.cell.up::before,
-.cell.up::after {
-  background-color: #c0c0c0;
-}
 
+/* Cellule en l'état DOWN minimum */
 .cell.down {
-  background-color: #444;
   transform: translateZ(-30px);
-}
-.cell.down::before,
-.cell.down::after {
-  background-color: #444;
-}
-
-/* test */
-
-.cell:hover {
-  transform: translateZ(30px);
 }
