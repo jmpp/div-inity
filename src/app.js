@@ -8,9 +8,12 @@
 
 		init: function () {
 			// Initialisation du jeu
+			app.sounds.init();
 			app.input.init();
 			app.player.init();
 			app.map.init().set(level1);
+
+			app.sounds.theme.play(); // Lancement du thème principal
 
 			app.update(); // 1er appel de la boucle
 		},

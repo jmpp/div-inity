@@ -13,8 +13,8 @@
 
     // Position sur la map en x (cells) et y (rows)
     pos: {
-      x: 6,
-      y: 4
+      x: 3,
+      y: 3
     },
 
     init: function () {
@@ -71,6 +71,7 @@
         case 'right':
           if (player.pos.x === app.config.map.width - 1) {
             !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -78,6 +79,7 @@
         case 'left':
           if (player.pos.x === 0) {
             !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -85,6 +87,7 @@
         case 'down':
           if (player.pos.y === app.config.map.height - 1) {
             !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -92,6 +95,7 @@
         case 'up':
           if (player.pos.y === 0) {
             !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
