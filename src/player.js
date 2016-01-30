@@ -13,13 +13,16 @@
 
     // Position sur la map en x (cells) et y (rows)
     pos: {
-      x: 0,
-      y: 0
+      x: 3,
+      y: 3
     },
 
     init: function () {
       $grid   = $('#grid');   
       $player = $('img#player');
+
+      $player.show();
+      player.applyMove()
     },
 
     update: function() {

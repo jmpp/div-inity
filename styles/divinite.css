@@ -1,0 +1,15 @@
+div#inity {
+  background-image: url('../img/divinite.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  animation: floaty 5s linear infinite;
+}
+
+@keyframes floaty {
+  from { transform: translateY(0px); }
+  50% { transform: translateY(35px); }
+  to { transform: translateY(0px); }
+}
