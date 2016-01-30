@@ -10,7 +10,7 @@ function Player(id, name, $player, init_pos){
   var animUp = function() {};//function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animDown = function() {};//function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animAction = function(){
-    TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}});
+    //TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}});
   }
 
   var player = {
@@ -32,6 +32,8 @@ function Player(id, name, $player, init_pos){
 
       $player.show();
       player.applyMove();
+
+      //var tween = TweenMax.to($player, 2, {scaleX:0.95,scaleY:0.98, yoyo:true, repeat:  10000, ease:Bounce.easeOut});
 
       console.log(name + ' inited && ready');
     },
@@ -115,7 +117,8 @@ function Player(id, name, $player, init_pos){
 
       switch (destination) {
         case 'right':
-          if (player.pos.x === app.config.map.width - 1) {
+          if (player.pos.x === app.config.map.width - 1 || 
+              !app.map.player_can_move_to(player, {x:player.pos.x+1, y:player.pos.y})) {
             // !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
@@ -123,7 +126,8 @@ function Player(id, name, $player, init_pos){
           break;
 
         case 'left':
-          if (player.pos.x === 0) {
+          if (player.pos.x === 0 || 
+              !app.map.player_can_move_to(player, {x:player.pos.x-1, y:player.pos.y})) {
             // !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
@@ -131,7 +135,8 @@ function Player(id, name, $player, init_pos){
           break;
 
         case 'down':
-          if (player.pos.y === app.config.map.height - 1) {
+          if (player.pos.y === app.config.map.height - 1 || 
+              !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y+1})) {
             // !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
@@ -139,7 +144,8 @@ function Player(id, name, $player, init_pos){
           break;
 
         case 'up':
-          if (player.pos.y === 0) {
+          if (player.pos.y === 0 || 
+              !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y-1})) {
             // !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
@@ -169,6 +175,7 @@ function Player(id, name, $player, init_pos){
   return {
     init:         player.init,
     update:       player.update, 
+    pos:          player.pos,
     set_control:  player.set_control,
     resetInputs:  player.resetInputs, 
     name:         name,
