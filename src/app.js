@@ -5,7 +5,7 @@
 		init: function () {
 			app.input.init();
 			app.player.init();
-			app.map.init();
+			app.map.init().set(level1);
 
 			app.update(); // 1er appel de la boucle
 		},
