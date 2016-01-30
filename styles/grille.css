@@ -21,13 +21,13 @@
 
 /* Une cellule du plateau */
 .cell {
-  background-color: #fff;
+  background: url('../img/tiles.png') 0 0 no-repeat;
   position: relative;
   display: inline-block;
   width: 100px;
   height: 100px;
-  outline: thin solid #808080;
-  transition: transform 0.15s;
+  outline: 1px solid transparent; /* Hack pour rendre plus 'smooth' les contours des éléments déformés en CSS (voir http://stackoverflow.com/a/9333891/1187888) */
+  transition: transform 2.5s;
   transform: translateZ(0);
   transform-style: preserve-3d;
 }
@@ -38,27 +38,29 @@
   content: '';
   display: block;
   position: absolute;
-  outline: thin solid #808080;
+  outline: 1px solid transparent; /* Hack pour rendre plus 'smooth' les contours des éléments déformés en CSS (voir http://stackoverflow.com/a/9333891/1187888) */
 }
 /* Face droite */
 .cell::before {
+  background: url('../img/cell-right.jpg') 0 0 repeat-y;
   top: 0;
   right: -60px;
   width: 60px;
   height: 100px;
   transform-origin: left top;
   transform: rotateY(90deg);
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 /* Face basse */
 .cell::after {
+  background: url('../img/cell-bottom.jpg') 0 0 repeat-y;
   left: 0;
   bottom: -60px;
   width: 100px;
   height: 60px;
   transform-origin: left top;
   transform: rotateX(-90deg);
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 /* Cellule en l'état UP maximum */

@@ -10,6 +10,8 @@
 
 		init: function () {
 
+			// Initialisation du jeu
+			app.sounds.init();
 			app.input.init();
 
 			// création des 3 joueurs
@@ -24,6 +26,8 @@
 			// Initialisation de la premiere map
 			
 			app.map.init().set(level1);
+
+			app.sounds.theme.play(); // Lancement du thème principal
 
 			app.update(); // 1er appel de la boucle
 		},

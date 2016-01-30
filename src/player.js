@@ -5,7 +5,7 @@ function Player(name, $player, init_pos){
   var name = name;
 
   var animationRunning = false; // flag animation
-  var animRight = function() { TweenMax.from($player, 2, {'x':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animRight = function() { TweenMax.from($player, 0.15, {'x':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animLeft = function() { TweenMax.from($player, 0.15, {'x':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animUp = function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animDown = function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
@@ -85,6 +85,7 @@ function Player(name, $player, init_pos){
         case 'right':
           if (player.pos.x === app.config.map.width - 1) {
             !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -92,6 +93,7 @@ function Player(name, $player, init_pos){
         case 'left':
           if (player.pos.x === 0) {
             !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -99,6 +101,7 @@ function Player(name, $player, init_pos){
         case 'down':
           if (player.pos.y === app.config.map.height - 1) {
             !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
@@ -106,6 +109,7 @@ function Player(name, $player, init_pos){
         case 'up':
           if (player.pos.y === 0) {
             !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            app.sounds.bump.play();
             return false;
           }
           break;
