@@ -67,6 +67,21 @@
 		get_topo: function(x,y){
 			return level.topo[x][y];
 		},
+
+		/**
+		 * Détermine si le player peu se déplacer vers pos(x,y)
+		 * @param  Player player 			Joueur
+		 * @param  Object{x:0, y:0} pos    	objet position
+		 * @return Boolean        			réponse
+		 */
+		player_can_move_to: function(player, pos){
+
+			var topo_player = this.get_topo(player.pos.x, player.pos.y),
+				topo_dest 	= this.get_topo(pos.x, pos.y),
+				can_move  	= (Math.abs(topo_player-topo_dest) < 2) ? true : false;
+
+			return can_move;
+		}
 	};
 
 	ctx.map = map;
