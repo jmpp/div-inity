@@ -9,6 +9,25 @@ div#inity {
   animation: floaty 5s linear infinite;
 }
 
+#bull {
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+  display: inline-block;
+  background-color: #fff;
+  border: thick solid #000;
+  padding: 1.5rem 3rem;
+  font-family: Bangers, sans-serif;
+  font-size: 5rem;
+  border-radius: 1rem;
+  box-shadow:       0  0.5rem 1rem #808080,
+              inset 0 -0.5rem 1rem #c0c0c0;
+  transition: opacity 1s;
+}
+#bull:empty {
+  opacity: 0;
+}
+
 @keyframes floaty {
   from { transform: translateY(0px); }
   50% { transform: translateY(35px); }
