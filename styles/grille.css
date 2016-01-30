@@ -1,0 +1,78 @@
+#scene3D {
+  perspective: 2000px;
+}
+
+/* La grille complète */
+#grid {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: translateZ(-500px) translateY(250px) rotateX(55deg) rotateZ(45deg);
+  width: 700px;
+  height: 700px;
+  margin: 1rem auto;
+}
+
+/* Une ligne du plateau (qui elle-même contient 7 cellules) */
+.row {
+  width: 700px;
+  height: 100px;
+  font-size: 0;
+}
+
+/* Une cellule du plateau */
+.cell {
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  outline: thin solid #808080;
+  transition: transform 0.15s;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+}
+
+/* Chaque cellule a un ::before et ::after, respectivement pour face droite et face basse de la cellule 3D */
+.cell::before,
+.cell::after {
+  content: '';
+  display: block;
+  position: absolute;
+  outline: thin solid #808080;
+}
+/* Face droite */
+.cell::before {
+  top: 0;
+  right: -60px;
+  width: 60px;
+  height: 100px;
+  transform-origin: left top;
+  transform: rotateY(90deg);
+  background-color: #fff;
+}
+/* Face basse */
+.cell::after {
+  left: 0;
+  bottom: -60px;
+  width: 100px;
+  height: 60px;
+  transform-origin: left top;
+  transform: rotateX(-90deg);
+  background-color: #fff;
+}
+
+/* Cellule en l'état UP maximum */
+.cell.up {
+  transform: translateZ(30px);
+}
+
+/* Cellule en l'état DOWN minimum */
+.cell.down {
+  transform: translateZ(-30px);
+}
+
+.cell > img {
+  position: absolute;
+  transform-origin: center center;
+  transform: rotateZ(-45deg) translateZ(55px) rotateX(-45deg);
+}

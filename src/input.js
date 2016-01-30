@@ -1,43 +1,48 @@
 (function(ctx){
   
+  /**
+   * Controle uniaue au clavier
+   * @type {Object}
+   */
   var input = {
 
-    keyboard : {
-      left   : false,
-      up     : false,
-      right  : false,
-      bottom : false
-    },
+    left   : false,
+    up     : false,
+    right  : false,
+    bottom : false,
 
-    // @todo: gamepad
 
     init: function () {
       document.addEventListener('keydown', input.onKeyDown, false);
       document.addEventListener('keyup', input.onKeyUp, false);
+      console.log('Keyboard ready');
+    },
+
+    update: function(){
+      // place holder pour ressembler à un controleur de gamepad
     },
 
     onKeyDown: function (evt) {
-      input.keyboard.left  = (evt.keyCode === 37) ? true : false;
-      input.keyboard.up    = (evt.keyCode === 38) ? true : false;
-      input.keyboard.right = (evt.keyCode === 39) ? true : false;
-      input.keyboard.down  = (evt.keyCode === 40) ? true : false;
+
+      input.left  = (evt.keyCode === 37) ? true : false;
+      input.up    = (evt.keyCode === 38) ? true : false;
+      input.right = (evt.keyCode === 39) ? true : false;
+      input.down  = (evt.keyCode === 40) ? true : false;
     },
 
     onKeyUp: function (evt) {
-      input.keyboard.left  = (evt.keyCode === 37) ? false : input.keyboard.left;
-      input.keyboard.up    = (evt.keyCode === 38) ? false : input.keyboard.up;
-      input.keyboard.right = (evt.keyCode === 39) ? false : input.keyboard.right;
-      input.keyboard.down  = (evt.keyCode === 40) ? false : input.keyboard.down;
+      input.left  = (evt.keyCode === 37) ? false : input.left;
+      input.up    = (evt.keyCode === 38) ? false : input.up;
+      input.right = (evt.keyCode === 39) ? false : input.right;
+      input.down  = (evt.keyCode === 40) ? false : input.down;
     },
 
     resetInputs: function () {
-      input.keyboard.left  = false;
-      input.keyboard.up    = false;
-      input.keyboard.right = false;
-      input.keyboard.down  = false;
+      input.left  = false;
+      input.up    = false;
+      input.right = false;
+      input.keydown  = false;
     }
-
-    
   };
 
   ctx.input = input;
