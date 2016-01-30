@@ -6,9 +6,15 @@
       // Thème principal
       {
         id: 'theme',
-        params: { urls:['sounds/theme.mp3', 'sounds/theme.wav'], loop:true } // Objet de configuration 'Howler'
+        params: { urls:['sounds/theme.mp3', 'sounds/theme.wav'], loop:true, volume: 0.3 } // Objet de configuration 'Howler'
       },
-      
+
+      // Brique
+      {
+        id: 'brick',
+        params: { urls:['sounds/brick.mp3', 'sounds/brick.wav'] } // Objet de configuration 'Howler'
+      },
+
       // Son de collision sur les bords de la map
       {
         id: 'bump',

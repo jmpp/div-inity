@@ -27,7 +27,7 @@
   width: 100px;
   height: 100px;
   outline: 1px solid transparent; /* Hack pour rendre plus 'smooth' les contours des éléments déformés en CSS (voir http://stackoverflow.com/a/9333891/1187888) */
-  transition: transform 2.5s;
+  transition: transform 2.9s linear;
   transform: translateZ(0);
   transform-style: preserve-3d;
 }
@@ -42,10 +42,10 @@
 }
 /* Face droite */
 .cell::before {
-  background: url('../img/cell-right.jpg') 0 0 repeat-y;
+  background: url('../img/cell-right.jpg') 0 0 repeat-x;
   top: 0;
-  right: -60px;
-  width: 60px;
+  right: -1000px;
+  width: 1000px;
   height: 100px;
   transform-origin: left top;
   transform: rotateY(90deg);
@@ -55,9 +55,9 @@
 .cell::after {
   background: url('../img/cell-bottom.jpg') 0 0 repeat-y;
   left: 0;
-  bottom: -60px;
+  bottom: -1000px;
   width: 100px;
-  height: 60px;
+  height: 1000px;
   transform-origin: left top;
   transform: rotateX(-90deg);
   /*background-color: #fff;*/
@@ -65,12 +65,12 @@
 
 /* Cellule en l'état UP maximum */
 .cell.up {
-  transform: translateZ(30px);
+  transform: translateZ(50px);
 }
 
 /* Cellule en l'état DOWN minimum */
 .cell.down {
-  transform: translateZ(-30px);
+  transform: translateZ(-50px);
 }
 
 .cell > img {

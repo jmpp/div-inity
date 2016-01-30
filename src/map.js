@@ -31,6 +31,7 @@
 					$line.children('.cell').eq(y).removeClass().addClass(css_class);
 				}
 			}
+			app.sounds.brick.play();
 			console.log('Map '+json.name+' loaded');
 		}
 	};
