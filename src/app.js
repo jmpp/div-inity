@@ -25,7 +25,7 @@
 
 			// Initialisation de la premiere map
 			
-			app.map.init().set(level1);
+			app.map.init().set(app.map.levels.get(1));
 
 			app.sounds.theme.play(); // Lancement du thème principal
 
