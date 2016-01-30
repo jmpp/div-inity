@@ -21,6 +21,8 @@ function Player(id, name, $player, init_pos){
       y: init_pos.y
     },
 
+    score: 0,
+
     id: id,
 
     on_a_move: false,
@@ -184,6 +186,7 @@ function Player(id, name, $player, init_pos){
     pos:          player.pos,
     set_control:  player.set_control,
     resetInputs:  player.resetInputs, 
-    name:         name
+    name:         name,
+    score:        player.score
   }
 };
