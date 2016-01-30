@@ -3,6 +3,23 @@
 	var app = {
 
 		init: function () {
+
+			var players = [
+				{
+					name: 'one',
+					set_control: function(){}
+				},
+				{name: 'two',
+				set_control: function(){}
+				},
+				{name: 'tree',
+				set_control: function(){}
+				},
+				{name: 'four',
+				set_control: function(){}
+				}
+			];
+			app.controls.init(players);
 			app.input.init();
 			app.player.init();
 			app.map.init().set(level1);
