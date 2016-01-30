@@ -1,4 +1,4 @@
-function Player(name, $player, init_pos){
+function Player(id, name, $player, init_pos){
 
   var $grid;
   var $player;
@@ -21,16 +21,28 @@ function Player(name, $player, init_pos){
       y: init_pos.y
     },
 
+    id: id,
+
     control: null,
 
     init: function () {
-      $grid   = $('#grid');   
-      //$player = $('img#player');
+      $grid   = $('#grid');
 
       $player.show();
       player.applyMove();
 
-      console.log(name + ' initied && ready');
+      console.log(name + ' inited && ready');
+    },
+
+    /**
+     * [look description]
+     * @param  {[type]} direction [description]
+     * @return {[type]}           [description]
+     */
+    look: function(direction){
+
+      // player1-down
+      $player.attr('src', 'img/player'+this.id+'-'+direction+'.png');
     },
 
     update: function() {
@@ -46,24 +58,28 @@ function Player(name, $player, init_pos){
       // A droite
 
       if (player.control.right && player.canGoto('right')) {
+        player.look('right');
         player.pos.x += 1;
         player.applyMove(animRight);
       }
       // A gauche
       
       if (player.control.left && player.canGoto('left')) {
+        player.look('left');
         player.pos.x -= 1;
         player.applyMove(animLeft);
       }
       // En bas
       
       if (player.control.down && player.canGoto('down')) {
+        player.look('down');
         player.pos.y += 1;
         player.applyMove(animDown);
       }
       // En haut
       
       if (player.control.up && player.canGoto('up')) {
+        player.look('up');
         player.pos.y -= 1;
         player.applyMove(animUp);
       }
@@ -71,6 +87,7 @@ function Player(name, $player, init_pos){
       // Action
       
       if (player.control.action) {
+        player.look('action');
         player.applyMove(animAction);
         console.log('Action!');
       }

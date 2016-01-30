@@ -42,6 +42,12 @@
 			console.log('Map '+json.name+' loaded');
 		},
 
+		update: function(){
+			if(level.update){
+				level.update();
+			}
+		},
+
 		/**
 		 * Renvoie l'indice de l'item à la position donnée
 		 * @param  int x 0-6
