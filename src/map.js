@@ -65,7 +65,6 @@
 		 * @return int   La topo (0-1-2)
 		 */
 		get_topo: function(x,y){
-			console.log(level.topo);
 			return level.topo[y][x];
 		},
 
@@ -102,7 +101,6 @@
 				empty_dest  = this.position_is_free(pos),
 				can_move  	= (Math.abs(topo_player-topo_dest) < 2 && empty_dest == true) ? true : false;
 
-console.log('move:', can_move, topo_player, player.pos, topo_dest, pos);
 			return can_move;
 		}
 	};
