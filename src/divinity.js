@@ -1,33 +1,31 @@
 (function(ctx){
 
   var $bull;
+  var $symbols;
   
   var divinity = {
 
     init: function () {
       $bull = $('#bull');
+      $symbols = $('#symbols');
     },
 
     say: function(message) {
 
-      message = processMessage(message);
-
-      $bull.empty().append(message);
+      $bull.empty().append(processMessage(message)).fadeIn();
     }
     
   };
 
   function processMessage(message) {
-    message = message.split('');
-    return message.map(function(letter, index) {
-                    if (letter !== '%')
-                      return letter;
-
-                    message.splice(index, index+1);
-
-                    return '<img src="img/'+index+'.png">';
-                  })
-                  .join('');
+    return message
+            .split('')
+            .map(function(letter) {
+              if (letter in [0,1,2,3,4,5,6])
+                return '<img src="img/'+letter+'.png">';
+              return letter;
+            })
+            .join('');
   }
 
   ctx.divinity = divinity;

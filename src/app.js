@@ -29,8 +29,8 @@
 			app.map.init().set(app.map.levels.get(1));
 
 			setTimeout(function() {
-				app.divinity.say('%0UMP%4%3 !');
-			}, 3300); // Dès que les briques sont placées
+				app.divinity.say('0UMP4');
+			}, 0); // Dès que les briques sont placées
 
 			// Lancement du thème principal
 			app.sounds.theme.play();

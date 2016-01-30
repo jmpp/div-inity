@@ -12,20 +12,23 @@ div#inity {
 #bull {
   position: absolute;
   z-index: 2;
-  opacity: 1;
-  display: inline-block;
-  background-color: #fff;
-  border: thick solid #000;
+  display: none;
+  background: url('../img/bubble.png') center center no-repeat;
   padding: 1.5rem 3rem;
-  font-family: Bangers, sans-serif;
-  font-size: 5rem;
-  border-radius: 1rem;
-  box-shadow:       0  0.5rem 1rem #808080,
-              inset 0 -0.5rem 1rem #c0c0c0;
-  transition: opacity 1s;
+  font-family: 'Delius Unicase', sans-serif;
+  font-size: 4rem;
+  min-width: 400px;
+  min-height: 200px;
+  line-height: 200px;
+  text-align: center;
+  color: #4e2e1f;
+
+  text-shadow: 0 0 0 rgba(255,255,255,0.5),
+               0 0 1rem #000;
 }
-#bull:empty {
-  opacity: 0;
+#bull > img {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 @keyframes floaty {
