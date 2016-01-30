@@ -2,7 +2,12 @@
 
 	var app = {
 
+		config: {
+			map: { width:7, height:7 }
+		},
+
 		init: function () {
+			// Initialisation du jeu
 			app.input.init();
 			app.player.init();
 			app.map.init().set(level1);

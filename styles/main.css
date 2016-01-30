@@ -4,6 +4,7 @@
 
 body {
   perspective: 2000px;
+  overflow: hidden;
 }
 
 img {

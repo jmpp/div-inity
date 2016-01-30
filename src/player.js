@@ -1,7 +1,13 @@
 (function(ctx){
 
   var $grid;
-  var $el;
+  var $player;
+
+  var animationRunning = false; // flag animation
+  var animRight = function() { TweenMax.from($player, 0.15, {'x':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animLeft = function() { TweenMax.from($player, 0.15, {'x':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animUp = function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animDown = function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   
   var player = {
 
@@ -12,47 +18,83 @@
     },
 
     init: function () {
-      $grid = $('#grid');   
-      $el   = $('img#player');
+      $grid   = $('#grid');   
+      $player = $('img#player');
     },
 
     update: function() {
-
       // =====================
       // Déplacement du joueur
       // =====================
 
       // A droite
-      if (app.input.keyboard.right) {
+      if (app.input.keyboard.right && player.canGoto('right')) {
         player.pos.x += 1;
-        player.applyMove();
+        player.applyMove(animRight);
       }
       // A gauche
-      if (app.input.keyboard.left) {
+      if (app.input.keyboard.left && player.canGoto('left')) {
         player.pos.x -= 1;
-        player.applyMove();
+        player.applyMove(animLeft);
       }
       // En bas
-      if (app.input.keyboard.down) {
+      if (app.input.keyboard.down && player.canGoto('down')) {
         player.pos.y += 1;
-        player.applyMove();
+        player.applyMove(animDown);
       }
       // En haut
-      if (app.input.keyboard.up) {
+      if (app.input.keyboard.up && player.canGoto('up')) {
         player.pos.y -= 1;
-        player.applyMove();
+        player.applyMove(animUp);
       }
     },
 
     // Applique la position du joueur dans le DOM
-    applyMove : function() {
-      $el.detach();
+    applyMove : function(animFunction) {
+      $player.detach();
       $grid
-        .find('.row')
-        .eq(player.pos.y)
-        .find('.cell')
-        .eq(player.pos.x)
-        .append($el);
+        .children('.row')
+        .eq(player.pos.y) // va chercher la ligne .row correspondant à la position Y du joueur
+        .children('.cell')
+        .eq(player.pos.x) // va chercher la cellule .cell correspondant à la position X du joueur
+        .append($player);
+      // Applique une animation avec le changement de position  
+      if ('function' === typeof animFunction && !animationRunning)
+        animFunction();
+    },
+
+    canGoto : function(destination) {
+      switch (destination) {
+        case 'right':
+          if (player.pos.x === app.config.map.width - 1) {
+            !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            return false;
+          }
+          break;
+
+        case 'left':
+          if (player.pos.x === 0) {
+            !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            return false;
+          }
+          break;
+
+        case 'down':
+          if (player.pos.y === app.config.map.height - 1) {
+            !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            return false;
+          }
+          break;
+
+        case 'up':
+          if (player.pos.y === 0) {
+            !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            return false;
+          }
+          break;
+      }
+
+      return true;
     }
   };
 
