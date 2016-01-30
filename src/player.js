@@ -9,7 +9,10 @@ function Player(name, $player, init_pos){
   var animLeft = function() {};//function() { TweenMax.from($player, 0.15, {'x':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animUp = function() {};//function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animDown = function() {};//function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
-  
+  var animAction = function(){
+    TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}});
+  }
+
   var player = {
 
     // Position sur la map en x (cells) et y (rows)
@@ -47,19 +50,29 @@ function Player(name, $player, init_pos){
         player.applyMove(animRight);
       }
       // A gauche
+      
       if (player.control.left && player.canGoto('left')) {
         player.pos.x -= 1;
         player.applyMove(animLeft);
       }
       // En bas
+      
       if (player.control.down && player.canGoto('down')) {
         player.pos.y += 1;
         player.applyMove(animDown);
       }
       // En haut
+      
       if (player.control.up && player.canGoto('up')) {
         player.pos.y -= 1;
         player.applyMove(animUp);
+      }
+
+      // Action
+      
+      if (player.control.action) {
+        player.applyMove(animAction);
+        console.log('Action!');
       }
     },
 

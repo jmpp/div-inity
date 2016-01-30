@@ -9,12 +9,12 @@ function Input_gp(gamepad){
     left   : false,
     up     : false,
     right  : false,
-    bottom : false,
+    down : false,
+    action: false,
 
     handler: gamepad,
 
-    init: function () {
-      
+    init: function () {      
       console.log('Gamepad ready');
     },
 
@@ -45,6 +45,9 @@ function Input_gp(gamepad){
           input.left = false;
           input.right = true;
         }
+
+        input.action = (input.handler.buttons[0].value>0) ? true : false;
+
     },
 
     resetInputs: function () {
@@ -53,6 +56,7 @@ function Input_gp(gamepad){
       input.up    = false;
       input.right = false;
       input.down  = false;
+      input.action = false;
     },
 
     /**
