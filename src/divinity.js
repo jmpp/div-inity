@@ -11,8 +11,14 @@
     },
 
     say: function(message) {
+      $bull
+      .empty()
+      .append(processMessage(message))
+      .fadeIn('slow');
 
-      $bull.empty().append(processMessage(message)).fadeIn();
+      setTimeout(function() {
+        $bull.empty().fadeOut('slow');
+      }, 5000)
     }
     
   };
@@ -21,7 +27,7 @@
     return message
             .split('')
             .map(function(letter) {
-              if (letter in [0,1,2,3,4,5,6])
+              if (letter in [0,1,2,3,4,5,6] )
                 return '<img src="img/'+letter+'.png">';
               return letter;
             })
