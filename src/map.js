@@ -69,7 +69,27 @@
 		},
 
 		/**
+		 * La position est elle vide d'autres joueurs ?
+		 * @param Object{x,y} 	pos
+		 * @return Boolean
+		 */
+		position_is_free: function(pos){
+
+			var plist  = app.players,
+				result = true;
+
+			for(var j=0; j<plist.length; j++){
+				if(pos.x == plist[j].pos.x && pos.y == plist[j].pos.y){
+					result = false;
+					break;
+				}
+			}
+			return result;
+		},
+
+		/**
 		 * Détermine si le player peu se déplacer vers pos(x,y)
+		 * Prend en compte la topographie du terrain et les autres joueurs
 		 * @param  Player player 			Joueur
 		 * @param  Object{x:0, y:0} pos    	objet position
 		 * @return Boolean        			réponse
@@ -78,7 +98,8 @@
 
 			var topo_player = this.get_topo(player.pos.x, player.pos.y),
 				topo_dest 	= this.get_topo(pos.x, pos.y),
-				can_move  	= (Math.abs(topo_player-topo_dest) < 2) ? true : false;
+				empty_dest  = this.position_is_free(pos),
+				can_move  	= (Math.abs(topo_player-topo_dest) < 2 && empty_dest == true) ? true : false;
 
 			return can_move;
 		}
