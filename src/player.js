@@ -13,8 +13,8 @@
 
     // Position sur la map en x (cells) et y (rows)
     pos: {
-      x: 3,
-      y: 3
+      x: 6,
+      y: 4
     },
 
     init: function () {
