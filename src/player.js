@@ -23,6 +23,8 @@ function Player(id, name, $player, init_pos){
 
     id: id,
 
+    on_a_move: false,
+
     control: null,
 
     init: function () {
@@ -51,11 +53,14 @@ function Player(id, name, $player, init_pos){
 
       if(!player.control)   return;
 
-      player.control.update();
+      //player.control.update();
+      player.on_a_move = player.control.update(player.on_a_move);
 
       // =====================
       // Déplacement du joueur
       // =====================
+
+      if(player.on_a_move === true)  return;
 
       // A droite
 
@@ -97,6 +102,9 @@ function Player(id, name, $player, init_pos){
 
     // Applique la position du joueur dans le DOM
     applyMove : function(animFunction) {
+
+      player.on_a_move = true;
+
       $player.detach();
       $grid
         .children('.row')

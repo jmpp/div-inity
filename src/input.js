@@ -12,14 +12,17 @@
     down   : false,
     action : false,
 
+    keyuped: false,
+
     init: function () {
       document.addEventListener('keydown', input.onKeyDown, false);
       document.addEventListener('keyup', input.onKeyUp, false);
       console.log('Keyboard ready');
     },
 
-    update: function(){
+    update: function(on_move){
       // place holder pour ressembler à un controleur de gamepad
+      return (on_move == true && input.keyuped == true) ? false : on_move;
     },
 
     onKeyDown: function (evt) {
@@ -29,6 +32,8 @@
       input.right = (evt.keyCode === 39) ? true : false;
       input.down  = (evt.keyCode === 40) ? true : false;
       input.action = (evt.keyCode === 32) ? true : false;
+
+      input.keyuped = false;
     },
 
     onKeyUp: function (evt) {
@@ -37,6 +42,8 @@
       input.right = (evt.keyCode === 39) ? false : input.right;
       input.down  = (evt.keyCode === 40) ? false : input.down;
       input.action  = (evt.keyCode === 32) ? false : input.action;
+
+      input.keyuped = true;
     },
 
     resetInputs: function () {

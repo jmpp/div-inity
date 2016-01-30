@@ -21,7 +21,7 @@ function Input_gp(gamepad){
     /**
      * Calcul les mouvement à partir du joystick analogique
      */
-    update: function(){
+    update: function( on_move ){
 
       var vertical = input.applyDeadzone(input.handler.axes[1], .8),
         horizontal = input.applyDeadzone(input.handler.axes[0], .8);
@@ -48,6 +48,14 @@ function Input_gp(gamepad){
 
         input.action = (input.handler.buttons[0].value>0) ? true : false;
 
+        var result = on_move;
+
+        if(on_move == true && vertical == 0 && horizontal == 0){
+            result = false;
+            //console.log(vertical, horizontal, 'reset deadZone');
+        }
+
+        return result;
     },
 
     resetInputs: function () {
