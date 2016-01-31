@@ -18,9 +18,9 @@
 			app.input.init();
 
 			// Création des 3 joueurs
-			app.players.push(new Player(1, 'monk1', $('img#monk1'), {x:5,y:5}));
-			app.players.push(new Player(2, 'monk2', $('img#monk2'), {x:5,y:1}));
-			app.players.push(new Player(3, 'monk3', $('img#monk3'), {x:1,y:5}));
+			app.players.push(new Player(1, 'monk1', $('#monk1'), {x:5,y:5}));
+			app.players.push(new Player(2, 'monk2', $('#monk2'), {x:5,y:1}));
+			app.players.push(new Player(3, 'monk3', $('#monk3'), {x:1,y:5}));
 
 			// Initialisation des controles pour les joueurs
 			app.controls.init(app.players);

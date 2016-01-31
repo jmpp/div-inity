@@ -51,7 +51,7 @@ function Player(id, name, $player, init_pos){
     look: function(direction){
 
       // player1-down
-      $player.attr('src', 'img/player'+this.id+'-'+direction+'.png');
+      $player.css('background-image', 'img/player'+this.id+'-'+direction+'.png');
     },
 
     update: function() {
@@ -214,6 +214,18 @@ function Player(id, name, $player, init_pos){
       TweenMax.to($player, .8, {'scale':1.2, ease: Elastic.easeOut, onComplete:function(){
         TweenMax.to($player, .6, {'scale':1.1, ease: Elastic.easeOut});
       }});
+    },
+
+    activate_adoration: function() {
+      var haloWidth  = 262;
+      var haloHeight = 1400;
+      var haloPosX = $player.offset().left;
+      var haloPosY = $player.offset().top;
+      $('img#halo'+id).css({ transform: 'translateX('+(haloPosX-25)+'px) translateY('+(haloPosY+60-haloHeight/2)+'px)' }).fadeIn('fast')
+    },
+
+    disable_adoration: function() {
+      $('img#halo'+id).fadeOut('fast');
     }
   };
 
@@ -225,6 +237,7 @@ function Player(id, name, $player, init_pos){
     resetInputs:  player.resetInputs, 
     name:         name,
     score:        player.score,
-    do_the_shaker:player.do_the_shaker
+    do_the_shaker:player.do_the_shaker,
+    activate_adoration: player. activate_adoration
   }
 };

@@ -74,10 +74,23 @@
   transform: translateZ(-50px);
 }
 
-.cell > img {
+.cell > .player {
   position: absolute;
   transform-origin: center center;
   transform: rotateZ(-45deg) translateZ(55px) rotateX(-45deg);
+}
+
+.cell.active {
+  background-image: none;
+  background-color: red;
+}
+
+/* Halos */
+
+#scene3D > [id^=halo] {
+  position: absolute;
+  display: none;
+  z-index: 9999;
 }
 
 /* Symboles cabalistiques au sol */

@@ -19,6 +19,17 @@ img {
   max-height: 100%;
 }
 
+/* players */
+
+#monk1, #monk2, #monk3 {
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+#monk1 { background-image: url('../img/player1-down.png'); }
+#monk2 { background-image: url('../img/player2-down.png'); }
+#monk3 { background-image: url('../img/player3-down.png'); }
+
 /* sablier */
 
 /* #sablier {
