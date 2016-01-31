@@ -16,9 +16,10 @@
       .append(processMessage(message))
       .fadeIn('slow');
 
-      setTimeout(function() {
-        $bull.empty().fadeOut('slow');
-      }, 5000)
+      // Plus de disparition de la bulle (laisse le temps au joueur d'analyser)
+      // setTimeout(function() {
+      //   $bull.empty().fadeOut('slow');
+      // }, 5000)
     }
     
   };

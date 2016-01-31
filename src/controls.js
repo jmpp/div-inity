@@ -9,6 +9,7 @@ const PLAY = 1;
 		gp_handler, player1,
 		controlable = [],
 		controlled 	= [true,false,false,false],
+		gp_assigned = [false, false, false],
 		nb_pad 		= 0;	
 
 	var controls = {
@@ -105,20 +106,24 @@ const PLAY = 1;
 	function select_player(){
 
 		gp_handler = navigator.getGamepads();
-
+		gp_handler = [].filter.call(gp_handler, function(gp) { return gp.id.toLowerCase().indexOf('xbox') !== -1 });
 		for(var j=0; j<3; j++){
+			if(!controlled[j]) {
+				for (var k = 0; k < gp_handler.length; k++) {
+					if (!gp_assigned[k] && gp_handler[k] && gp_handler[k].buttons[0] && gp_handler[k].buttons[0].value>0){
+						
+						gp_assigned[k] = true;
+						var p 			= (nb_pad > 1) ? player1 : controlable[j];
+						controlled[j] 	= true;
+						nb_pad		   +=  1;
+						p.init();
+						var gp = new Input_gp(gp_handler[k]);
+						p.set_control(gp);
 
-			if(!controlled[j] && gp_handler[j] && gp_handler[j].buttons[0].value>0){
-				
-
-				var p 			= (nb_pad > 1) ? player1 : controlable[j];
-				controlled[j] 	= true;
-				nb_pad		   +=  1;
-				p.init();
-				var gp = new Input_gp(gp_handler[j]);
-				p.set_control(gp);
-
-				console.log('Control '+j+'  is  assigned to player '+p.name);
+						console.log('Control '+k+'  is  assigned to player '+p.name);
+						break;
+					}
+				}
 			}
 		}
 	}

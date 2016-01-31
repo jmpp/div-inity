@@ -42,7 +42,7 @@
 		
 		level1: {
 			name: 'level 1',
-			challenge: '0UMP4 !!!',
+			challenge: '0UMP4',
 			topo: [
 				[2,2,2,2,2,2,2],
 				[2,0,1,1,1,0,2],
@@ -68,7 +68,7 @@
 
 		level2: {
 			name: 'level 2',
-			challenge: '0UMP4 !!!',
+			challenge: '4LIP6',
 			topo: [
 				[2,0,0,0,0,0,2],
 				[2,0,0,0,0,0,2],
@@ -91,7 +91,7 @@
 
 		level3: {
 			name: 'level 3',
-			challenge: '0UMP4 !!!',
+			challenge: 'J41ML2',
 			topo: [
 				[1,1,1,1,1,1,1],
 				[2,0,0,0,0,0,2],
@@ -114,7 +114,7 @@
 
 		level4: {
 			name: 'Waves',
-			challenge: '0UMP4 !!!',
+			challenge: 'V3L5',
 			topo: [
 				[0,0,0,0,0,0,0],
 				[1,1,1,1,1,1,1],
@@ -137,7 +137,7 @@
 
 		level5: {
 			name: 'Hills',
-			challenge: '0UMP4 !!!',
+			challenge: 'B035',
 			topo: [
 				[2,1,0,1,2,1,0],
 				[1,0,1,2,1,0,1],
@@ -160,7 +160,7 @@
 
 		level6: {
 			name: 'cross',
-			challenge: '0UMP4 !!!',
+			challenge: 'QU4I2',
 			topo: [				
 				[0,0,0,0,0,0,0],
 				[0,2,2,0,2,2,0],
@@ -183,7 +183,7 @@
 
 		level7: {
 			name: '2 pyramides',
-			challenge: '0UMP4 !!!',
+			challenge: 'X2MI1',
 			topo: [				
 				[0,0,1,1,1,0,0],
 				[0,0,1,2,1,0,0],
@@ -199,14 +199,14 @@
 				[0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0],
 				[0,0,0,0,0,0,0],
-				[0,0,0,1,0,0,0],
+				[0,0,0,2,0,0,0],
 				[0,0,0,0,0,0,0]
 			]
 		},
 
 		level8: {
 			name: 'temple',
-			challenge: '0UMP4 !!!',
+			challenge: 'N4MA1',
 			topo: [				
 				[0,0,0,0,0,0,0],
 				[0,2,0,2,0,2,0],
@@ -228,7 +228,7 @@
 		},
 		level9: {
 			name: 'the wall',
-			challenge: '0UMP4 !!!',
+			challenge: '0123456',
 			topo: [				
 				[0,0,2,2,2,0,0],
 				[0,0,1,1,1,0,0],
@@ -251,7 +251,7 @@
 
 		level10: {
 			name: 'start menu',
-			challenge: '0UMP4 !!!',
+			challenge: '654321',
 			topo: [
 				[2,1,2,1,2,1,2],
 				[1,0,0,0,0,0,1],
