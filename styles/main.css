@@ -87,7 +87,9 @@ img {
 /* scoring */
 
 #scoring {
-  position: relative;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   z-index: 99999;
 }
 #scoring > div[class^=p] > img,

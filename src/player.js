@@ -234,6 +234,7 @@ function Player(id, name, $player, init_pos){
     win: function(){
 
       player.score++;
+      $('#scoring .p'+id+' > span').text(player.score);
       
     }
   };
