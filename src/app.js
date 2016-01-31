@@ -75,7 +75,9 @@
 
 				// MAIN GAME LOOP : chargement de la map
 				case 10:
-app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
+
+app.level = 3; //Math.floor((Math.random() * app.map.levels.nb) + 1);
+
 					app.init_players_challenge();
 					app.map.init().set(app.map.levels.get(app.level));
 					setTimeout(function(){ app.state = 11 }, 3000);
@@ -118,9 +120,10 @@ app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
 
 			var win_position = app.map.levels.get(app.level).win;
 
-			for(var j=0; j<app.players.length; j++){
+			for(var j=0; j<app.players.length; j++) {
 				var wp = win_position.slice(0);
-				app.players[j].win_position = wp;
+				if (wp)
+					app.players[j].win_position = wp;
 			}
 
 			console.log('Joueurs: win position ready !');
