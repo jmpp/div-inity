@@ -38,7 +38,10 @@
         if(nb<1){
           window.clearInterval(si_handler);
           if(app.level_winner)  app.level_winner.disable_adoration();
-          $('div#inity').css('background-image', "url('img/divinite.png')");
+          $('div#inity').css({
+            'background-image': "url('img/divinite.png')",
+            'background-position': '0  0'
+          });
           app.state = 10;
           console.log('Devinity has finish !');
         }
