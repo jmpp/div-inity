@@ -130,7 +130,8 @@ app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
 		
 		win_level: function(winner){
 			
-			winner.score++;
+			winner.win();
+			app.divinity.dance();
 
 			app.state = 13;
 			console.log('Player '+winner.id+' WIN this level!');

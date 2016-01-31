@@ -20,6 +20,10 @@
       // setTimeout(function() {
       //   $bull.empty().fadeOut('slow');
       // }, 5000)
+    },
+
+    dance: function(){
+      
     }
     
   };
