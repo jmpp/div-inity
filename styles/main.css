@@ -2,9 +2,13 @@
   box-sizing: border-box;
 }
 
+html {
+  background-image: url('../img/bg.png');
+  -webkit-background-size: contain;
+  background-size: contain;
+}
+
 body {
-  /* background-image: url('../img/fond.jpg');*/
-  background-color: #000;
   overflow: hidden;
 }
 
@@ -30,4 +34,36 @@ img {
   left: 0;
   top: 0;
   z-index: 1;
+}
+
+/* Déco */
+
+#comet1 {
+  width: 650px;
+  height: 88px;
+  background-image: url('../img/comet1.png');
+  position: absolute;
+  top: 3rem;
+  left: -650px;
+  animation: cometToRight 15s 8s linear infinite;
+}
+
+#comet2 {
+  width: 773px;
+  height: 162px;
+  background-image: url('../img/comet2.png');
+  position: absolute;
+  top: 50%;
+  right: -773px;
+  animation: cometToLeft 15s 8s linear infinite;
+}
+
+@keyframes cometToRight {
+  from { transform: translateX(-650px); }
+  to { transform: translateX(2000px); }
+}
+
+@keyframes cometToLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-2773px); }
 }

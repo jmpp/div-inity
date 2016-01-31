@@ -1,8 +1,8 @@
 div#inity {
   background-image: url('../img/divinite.png');
-  background-position: center -556px;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: auto 227%;
+  background-size: auto 120%;
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -17,9 +17,9 @@ div#inity {
   background: url('../img/bubble.png') center center no-repeat;
   font-family: 'Delius Unicase', sans-serif;
   font-size: 4rem;
-  width: 465px;
-  height: 201px;
-  line-height: 201px;
+  width: 700px;
+  height: 200px;
+  line-height: 200px;
   text-align: center;
   color: #000;
 
