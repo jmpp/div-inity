@@ -69,6 +69,14 @@
 		},
 
 		/**
+		 * Renvoie le niveau en cours de jeu
+		 * @return Object{} Données du niveau
+		 */
+		get_level: function(){
+			return level;
+		},
+
+		/**
 		 * La position est elle vide d'autres joueurs ?
 		 * @param Object{x,y} 	pos
 		 * @return Boolean

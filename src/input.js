@@ -34,6 +34,11 @@
       input.action = (evt.keyCode === 32) ? true : false;
 
       input.keyuped = false;
+
+      // commemcer le jeu avec la touche entrée
+      if(evt.keyCode === 13){
+        app.state = 10;
+      }
     },
 
     onKeyUp: function (evt) {

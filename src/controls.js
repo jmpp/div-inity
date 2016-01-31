@@ -95,6 +95,7 @@ const PLAY = 1;
 			gp_handler[1] && gp_handler[1].buttons[9] && gp_handler[1].buttons[9].value>0 ||
 				gp_handler[2] && gp_handler[2].buttons[9] && gp_handler[2].buttons[9].value>0){
 					controls.set_mode(PLAY);
+				app.state = 1;
 			}
 				
 	}
