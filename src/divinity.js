@@ -32,8 +32,9 @@
     return message
             .split('')
             .map(function(letter) {
-              if (letter in [0,1,2,3,4,5,6] )
-                return '<img src="img/'+letter+'.png">';
+              letter = Number(letter);
+              if ([1,2,3,4,5,6,7].indexOf(letter) !== -1)
+                return '<img src="img/'+(letter-1)+'.png">';
               return letter;
             })
             .join('');
