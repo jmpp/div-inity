@@ -17,12 +17,12 @@ function Player(id, name, $player, init_pos){
 
     // Position sur la map en x (cells) et y (rows)
     pos: {
-      x: init_pos.x,
-      y: init_pos.y
+      x: -id,
+      y: 0
     },
 
+    init_pos: init_pos,
     score: 0,
-
     id: id,
 
     on_a_move: false,
@@ -31,6 +31,8 @@ function Player(id, name, $player, init_pos){
 
     init: function () {
       $grid   = $('#grid');
+
+      player.pos = player.init_pos;
 
       $player.show();
       player.applyMove();
