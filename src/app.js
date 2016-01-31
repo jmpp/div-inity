@@ -74,7 +74,8 @@
 
 				// MAIN GAME LOOP : chargement de la map
 				case 10:
-					app.level = Math.floor((Math.random() * app.map.levels.nb) + 1);
+app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
+					app.init_players_challenge();
 					app.map.init().set(app.map.levels.get(app.level));
 					setTimeout(function(){ app.state = 11 }, 3000);
 					app.state +=.5;
@@ -103,11 +104,36 @@
 					}
 					break;
 
-				//  fin du level
+				//  fin du level : nous avons un gagnant
 				case 13:
 					break;
 			}
 			
+		},
+
+		/**
+		 * Initialise les win positions dans chaque joueur
+		 */
+		init_players_challenge: function(){
+
+			var win_position = app.map.levels.get(app.level).win;
+
+			for(var j=0; j<app.players.length; j++){
+				var wp = win_position.slice(0);
+				app.players[j].win_position = wp;
+			}
+
+			console.log('Joueurs: win position ready !');
+		},
+
+		//  Nous avons un gagnant pour ce niveau
+		
+		win_level: function(winner){
+			
+			winner.score++;
+
+			app.state = 13;
+			console.log('Player '+winner.id+' WIN this level!');
 		}
 	};
 

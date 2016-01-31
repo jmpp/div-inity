@@ -22,6 +22,7 @@ function Player(id, name, $player, init_pos){
     },
 
     init_pos: init_pos,
+    win_position: [],
     score: 0,
     id: id,
 
@@ -66,6 +67,7 @@ function Player(id, name, $player, init_pos){
 
       if(player.on_a_move === true)  return;
 
+
       // A droite
 
       if (player.control.right && player.canGoto('right')) {
@@ -100,7 +102,34 @@ function Player(id, name, $player, init_pos){
       if (player.control.action) {
         player.look('action');
         player.applyMove(animAction);
+        player.check_victory_position();
         console.log('Action!');
+      }
+    },
+
+    check_victory_position: function(){
+
+      //  on check  les victoires uniquemment dans la gameloop
+      if(app.state != 12) return;
+
+      var hash        = player.pos.x+'_'+player.pos.y,
+          player_win  = app.players[player.id].win_position;
+
+      if(player_win.length < 1) return;
+      
+
+      console.log(hash, player_win[0]);
+      if(hash == player_win[0]){
+        
+        // win!
+        player_win.shift();
+        app.sounds.adoration.play();
+
+        console.log('Player '+player.id+' progresse : '+player_win.length);
+
+        if(player_win.length < 1){
+          app.win_level(player);
+        }
       }
     },
 

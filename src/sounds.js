@@ -19,7 +19,13 @@
       {
         id: 'bump',
         params: { urls:['sounds/bump.mp3', 'sounds/bump.wav'] } // Objet de configuration 'Howler'
-      }
+      },
+
+      // Adoration
+      {
+        id: 'adoration',
+        params: { urls:['sounds/passage_niveau_1.mp3', 'sounds/passage_niveau_1.wav'] } // Objet de configuration 'Howler'
+      },
     ],
 
     init: function () {
