@@ -124,6 +124,9 @@ function Player(id, name, $player, init_pos){
         // win!
         player_win.shift();
         app.sounds.adoration.play();
+        player.activate_adoration();
+
+        setTimeout(function(){ player.disable_adoration(); }, 1000);
 
         console.log('Player '+player.id+' progresse : '+player_win.length);
 
@@ -226,6 +229,12 @@ function Player(id, name, $player, init_pos){
 
     disable_adoration: function() {
       $('img#halo'+id).fadeOut('fast');
+    },
+
+    win: function(){
+
+      player.score++;
+      
     }
   };
 
