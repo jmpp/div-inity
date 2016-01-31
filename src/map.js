@@ -65,7 +65,15 @@
 		 * @return int   La topo (0-1-2)
 		 */
 		get_topo: function(x,y){
-			return level.topo[x][y];
+			return level.topo[y][x];
+		},
+
+		/**
+		 * Renvoie le niveau en cours de jeu
+		 * @return Object{} Données du niveau
+		 */
+		get_level: function(){
+			return level;
 		},
 
 		/**
