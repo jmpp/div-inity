@@ -5,12 +5,12 @@ function Player(id, name, $player, init_pos){
   var name = name;
 
   var animationRunning = false; // flag animation
-  var animRight = function() {};//function() { TweenMax.from($player, 0.15, {'x':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
-  var animLeft = function() {};//function() { TweenMax.from($player, 0.15, {'x':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
-  var animUp = function() {};//function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
-  var animDown = function() {};//function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animRight = function() { TweenMax.from($player, 0.15, {'x':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animLeft = function() { TweenMax.from($player, 0.15, {'x':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animUp = function() { TweenMax.from($player, 0.15, {'y':'100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
+  var animDown = function() { TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}}) };
   var animAction = function(){
-    //TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}});
+    // TweenMax.from($player, 0.15, {'y':'-100px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}});
   }
 
   var player = {
@@ -126,8 +126,8 @@ function Player(id, name, $player, init_pos){
       switch (destination) {
         case 'right':
           if (player.pos.x === app.config.map.width - 1 || 
-              !app.map.player_can_move_to(player, {x:player.pos.x+1, y:player.pos.y})) {
-            // !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            !app.map.player_can_move_to(player, {x:player.pos.x+1, y:player.pos.y})) {
+            !animationRunning && TweenMax.from($player, 0.15, {'x':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
           }
@@ -135,8 +135,8 @@ function Player(id, name, $player, init_pos){
 
         case 'left':
           if (player.pos.x === 0 || 
-              !app.map.player_can_move_to(player, {x:player.pos.x-1, y:player.pos.y})) {
-            // !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            !app.map.player_can_move_to(player, {x:player.pos.x-1, y:player.pos.y})) {
+            !animationRunning && TweenMax.from($player, 0.15, {'x':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
           }
@@ -144,8 +144,8 @@ function Player(id, name, $player, init_pos){
 
         case 'down':
           if (player.pos.y === app.config.map.height - 1 || 
-              !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y+1})) {
-            // !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y+1})) {
+            !animationRunning && TweenMax.from($player, 0.15, {'y':'35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
           }
@@ -153,8 +153,8 @@ function Player(id, name, $player, init_pos){
 
         case 'up':
           if (player.pos.y === 0 || 
-              !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y-1})) {
-            // !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
+            !app.map.player_can_move_to(player, {x:player.pos.x, y:player.pos.y-1})) {
+            !animationRunning && TweenMax.from($player, 0.15, {'y':'-35px',onComplete:function(){animationRunning=false},onStart:function(){animationRunning=true}})
             app.sounds.bump.play();
             return false;
           }
