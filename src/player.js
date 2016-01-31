@@ -176,8 +176,14 @@ function Player(id, name, $player, init_pos){
       if(player.control){
         player.control.resetInputs();
       }
-    }
+    },
 
+    do_the_shaker: function(){
+
+      TweenMax.to($player, .8, {'scale':1.2, ease: Elastic.easeOut, onComplete:function(){
+        TweenMax.to($player, .6, {'scale':1.1, ease: Elastic.easeOut});
+      }});
+    }
   };
 
   return {
@@ -187,6 +193,7 @@ function Player(id, name, $player, init_pos){
     set_control:  player.set_control,
     resetInputs:  player.resetInputs, 
     name:         name,
-    score:        player.score
+    score:        player.score,
+    do_the_shaker:player.do_the_shaker
   }
 };

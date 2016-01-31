@@ -26,7 +26,7 @@
 			app.divinity.init();
 
 			// Initialisation de la premiere map
-			app.map.init().set(app.map.levels.get(1));
+			app.map.init().set(app.map.levels.get(8));
 
 			setTimeout(function() {
 				app.divinity.say('0UMP4 !!!')
