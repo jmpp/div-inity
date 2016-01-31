@@ -74,7 +74,11 @@
 
 				// MAIN GAME LOOP : chargement de la map
 				case 10:
-          Math.floor((Math.random() * app.map.levels.nb) + 1);
+
+					var new_level = Math.floor((Math.random() * app.map.levels.nb) + 1);
+					if(app.level == new_level)	new_level++;
+					app.level = new_level
+
 					app.init_players_challenge();
 					app.map.init().set(app.map.levels.get(app.level));
 					setTimeout(function(){ app.state = 11 }, 3000);
