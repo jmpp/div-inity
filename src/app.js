@@ -108,7 +108,6 @@ app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
 				case 13:
 					break;
 			}
-			
 		},
 
 		/**
