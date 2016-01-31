@@ -118,7 +118,8 @@ function Player(id, name, $player, init_pos){
       if(player_win.length < 1) return;
       
 
-      console.log(hash, player_win[0]);
+      //console.log(hash, player_win[0]);
+      
       if(hash == player_win[0]){
         
         // win!
@@ -126,12 +127,14 @@ function Player(id, name, $player, init_pos){
         app.sounds.adoration.play();
         player.activate_adoration();
 
-        setTimeout(function(){ player.disable_adoration(); }, 1000);
+        
 
         console.log('Player '+player.id+' progresse : '+player_win.length);
 
         if(player_win.length < 1){
           app.win_level(player);
+        }else{
+          setTimeout(function(){ player.disable_adoration(); }, 1000);
         }
       }
     },
