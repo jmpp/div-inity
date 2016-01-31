@@ -83,3 +83,22 @@ img {
   from { transform: translateX(0); }
   to { transform: translateX(-2773px); }
 }
+
+/* scoring */
+
+#scoring {
+  position: relative;
+  z-index: 99999;
+}
+#scoring > div[class^=p] > img,
+#scoring > div[class^=p] > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+#scoring > div[class^=p] > span {
+  font-size: 3rem;
+  font-family: 'The Girl Next Door';
+  font-weight: bold;
+  line-height: 0;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
