@@ -9,7 +9,8 @@
 		level: 1,
 		state: 0,	
 
-		players: [],	
+		players: [],
+		level_winner: null,	
 
 		init: function () {
 
@@ -74,7 +75,7 @@
 
 				// MAIN GAME LOOP : chargement de la map
 				case 10:
-app.level = 1; //Math.floor((Math.random() * app.map.levels.nb) + 1);
+app.level = 2; //Math.floor((Math.random() * app.map.levels.nb) + 1);
 					app.init_players_challenge();
 					app.map.init().set(app.map.levels.get(app.level));
 					setTimeout(function(){ app.state = 11 }, 3000);
@@ -129,6 +130,7 @@ app.level = 1; //Math.floor((Math.random() * app.map.levels.nb) + 1);
 		
 		win_level: function(winner){
 			
+			app.level_winner = winner;
 			winner.win();
 			app.divinity.dance();
 
