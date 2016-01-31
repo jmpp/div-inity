@@ -2,7 +2,7 @@
 
 	var levels = {
 
-		nb:10,
+		nb:5,
 
 		get: function(id){
 			return data['level'+id];
