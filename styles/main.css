@@ -21,16 +21,16 @@ img {
 
 /* sablier */
 
-#sablier {
+/* #sablier {
   position: absolute;
   top: 2rem;
   right: 5rem;
   width: 300px;
   height: 20px;
   background-color: #007090;
-  /*overflow: hidden;*/
+  overflow: hidden;
   box-shadow: 0 0 1rem 1rem #007090;
-  /*border: medium solid transparent;*/
+  border: medium solid transparent;
   border-radius: 10px;
 }
 #sablier > .progress {
@@ -39,7 +39,7 @@ img {
   height: 10px;
   margin-top: 5px;
   border-radius: 10px;
-}
+} */
 
 /* Déco */
 
