@@ -68,8 +68,7 @@
 
 				// start
 				case 1:
-					console.log('GAME START');
-					
+					console.log('GAME START');				
 					app.state = 10;
 					break;
 

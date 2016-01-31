@@ -105,6 +105,8 @@ const PLAY = 1;
 	
 	function select_player(){
 
+		if(app.state != .5)	return;
+		
 		gp_handler = navigator.getGamepads();
 		gp_handler = [].filter.call(gp_handler, function(gp) { return gp.id.toLowerCase().indexOf('xbox') !== -1 });
 		for(var j=0; j<3; j++){
